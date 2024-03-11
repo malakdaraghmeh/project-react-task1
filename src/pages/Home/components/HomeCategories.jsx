@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { Link, NavLink, useParams } from 'react-router-dom';
 
 
 export default function HomeCategories() {
@@ -13,7 +14,7 @@ export default function HomeCategories() {
         }
         useEffect(()=>{
             getCategories();  
-        },[])
+        },[]);
     
   return (
     <>
@@ -33,12 +34,16 @@ export default function HomeCategories() {
       (categories.length>0)? categories.map(catagory => 
           <div className="col-lg-6 col-md-4 col-sm-6"  key={catagory.id}>
              <SwiperSlide className="swiperSlide" key={catagory._id}>
-             <div  className="swiperSlide  d-flex flex-wrap flex-wrap align-items-center flex-sm-column gap-2 justify-content-center   ">
+             <NavLink to={`/category/${catagory._id}`}>
+             <div  className="swiperSlide  d-flex flex-wrap flex-wrap align-items-center flex-sm-column gap-2 justify-content-center ">
              <img className="circular-image" src={catagory.image.secure_url}alt="slide image" />
-             <span className="cat-title">{catagory.name}</span></div>
+             <span className="cat-title">{catagory.name}</span>
+             </div>
+             </NavLink>
              </SwiperSlide>
+            
               </div>
-        ):<h2>empty data</h2> }
+        ):<h2>empty data</h2>}
 
     </Swiper>
      </div>

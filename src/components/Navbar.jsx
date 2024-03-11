@@ -24,6 +24,12 @@ export default function Navbar() {
         <li className="nav-item">
           <NavLink className="nav-link" to='/products'>products</NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to='/register'>Register</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to='/login'>Login</NavLink>
+        </li>
       </ul>
      <form className="d-flex gap-3" role="search">
   <button className="btn btn-outline-success" type="submit">Sign in</button>
